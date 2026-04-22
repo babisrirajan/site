@@ -1,0 +1,462 @@
+/* Babitha Srirajan — portfolio recreation */
+
+:root {
+  --bg: #0c0c0c;
+  --bg-elevated: #141414;
+  --text: #f0ebe4;
+  --text-muted: #9a948a;
+  --accent: #c4a574;
+  --accent-soft: rgba(196, 165, 116, 0.15);
+  --border: rgba(240, 235, 228, 0.12);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --space: clamp(1rem, 4vw, 2.5rem);
+  --max: 1100px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Layout ---------- */
+
+.site-header {
+  position: relative;
+  z-index: 100;
+  padding: 1.25rem var(--space);
+  background: linear-gradient(to bottom, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.site-header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.logo:hover {
+  color: var(--accent);
+}
+
+.nav-main {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-main a {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.nav-main a:hover,
+.nav-main a.is-active {
+  color: var(--text);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+main {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.container {
+  width: min(100% - 2 * var(--space), var(--max));
+  margin-inline: auto;
+}
+
+/* ---------- Hero (home) ---------- */
+
+.hero {
+  min-height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 3rem 4rem;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.hero-name .line1 {
+  display: block;
+  font-size: clamp(3rem, 12vw, 7.5rem);
+  font-weight: 300;
+}
+
+.hero-name .line2 {
+  display: block;
+  font-size: clamp(3rem, 12vw, 7.5rem);
+  font-weight: 600;
+  margin-top: 0.05em;
+}
+
+.hero-tagline {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  margin-top: 5rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+
+.section-lead {
+  color: var(--text-muted);
+  max-width: 52ch;
+  font-size: 1.05rem;
+}
+
+/* ---------- Connect form ---------- */
+
+.connect-block {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.connect-block h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-grid input,
+.form-grid textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-grid textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.form-thanks {
+  display: none;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--accent);
+}
+
+.form-thanks.is-visible {
+  display: block;
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery-intro {
+  margin-bottom: 3rem;
+}
+
+.gallery-intro .section-title {
+  margin-bottom: 1rem;
+}
+
+.gallery-section {
+  margin-top: 4rem;
+}
+
+.gallery-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+  color: var(--accent);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 3 / 4;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.3s, transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* ---------- Portfolio ---------- */
+
+.portfolio-lead {
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.project-card {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 800px) {
+  .project-card {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
+}
+
+.project-visual {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(145deg, var(--bg-elevated), #1a1816);
+  border: 1px solid var(--border);
+}
+
+.project-card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.project-card p {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: 5rem;
+  padding: 3rem var(--space);
+  border-top: 1px solid var(--border);
+}
+
+.footer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-tags span {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.footer-tags span strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.footer-contact {
+  font-size: 0.95rem;
+}
+
+.footer-contact p {
+  margin: 0.35rem 0;
+}
+
+.footer-meta {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.footer-nav a {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.footer-nav a:hover {
+  color: var(--text);
+}
+
+/* ---------- Mobile nav ---------- */
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-main {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    right: 0;
+    width: min(280px, 85vw);
+    height: 100vh;
+    min-height: 100vh;
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem 1.5rem 2rem;
+    gap: 1.25rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .nav-main.is-open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .nav-main a {
+    font-size: 0.85rem;
+  }
+}
+
+body.nav-open {
+  overflow: hidden;
+}

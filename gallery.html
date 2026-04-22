@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media — Babitha Srirajan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&family=Italiana&family=Oranienbaum&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+  <body class="page-media">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="logo" href="index.html">Babitha Srirajan</a>
+        <button
+          type="button"
+          class="nav-toggle"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          Menu
+        </button>
+        <nav class="nav-main" data-nav aria-label="Primary">
+          <a href="about.html">about</a>
+          <a href="resume.html">resume</a>
+          <a class="is-active" href="gallery.html">media</a>
+          <a href="contact.html">contact</a>
+          <a href="portfolio.html">design</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <header class="media-hero" data-media-hero>
+        <video
+          class="media-hero-video media-hero-video--viewport-fixed"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+        >
+          <source src="media/100_0928.MP4" type="video/mp4" />
+        </video>
+        <div class="media-hero-scrim" aria-hidden="true"></div>
+        <h1 class="media-hero-title">Media</h1>
+      </header>
+
+      <section class="media-section media-section--vocal" aria-labelledby="vocal-heading">
+        <h2 id="vocal-heading">Vocal</h2>
+        <div class="media-vocal-grid">
+          <figure class="media-embed">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="media/ill-be-here-poster.png"
+              title="I'll Be Here from Ordinary Days"
+            >
+              <source src="media/ill-be-here.mp4" type="video/mp4" />
+            </video>
+            <figcaption class="media-embed-caption">
+              &ldquo;I'll be Here&rdquo; - <cite>Ordinary Days</cite>
+            </figcaption>
+          </figure>
+          <figure class="media-embed">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="media/vocal-0419-poster.png"
+              title="Vocal performance"
+            >
+              <source src="media/vocal-0419.mov" type="video/quicktime" />
+            </video>
+            <figcaption class="media-embed-caption">
+              &ldquo;I'm Breaking Down&rdquo; - <cite>Falsettos</cite>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="media-section media-section--dance" aria-labelledby="dance-heading">
+        <h2 id="dance-heading">Dance</h2>
+        <div class="media-dance-grid">
+          <figure class="media-dance-cell media-dance-cell--tall">
+            <img
+              src="dance/tbcfall2024-40_Original.jpeg"
+              width="1365"
+              height="2048"
+              alt="Babitha dancing outdoors in a blue dress, autumn park"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="media-dance-cell media-dance-cell--video media-dance-cell--choreo">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="dance/soulsista-poster.png"
+              title="Soulsista"
+            >
+              <source src="dance/soulsista.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <figure class="media-dance-cell media-dance-cell--wide">
+            <img
+              src="dance/IMG_2384.jpeg"
+              width="3000"
+              height="2000"
+              alt="Ensemble contemporary dance on a dark stage in light costumes"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="media-dance-cell media-dance-cell--video media-dance-cell--reel">
+            <div class="media-dance-reel-frame">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                width="720"
+                height="960"
+                poster="media/dance-reel-0417-poster.jpg"
+                title="Dance reel"
+              >
+                <source src="media/dance-reel-0417.mov" type="video/quicktime" />
+              </video>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="media-section media-section--modelling"
+        aria-labelledby="modelling-heading"
+      >
+        <div
+          class="media-modelling"
+          data-modelling-carousel
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Modelling photos"
+        >
+          <div class="media-modelling-viewport" data-modelling-viewport>
+            <div class="media-modelling-track" data-modelling-track>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/1.jpeg"
+                  alt="Modelling photo 1"
+                  width="1153"
+                  height="467"
+                  loading="eager"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/2.jpeg"
+                  alt="Modelling photo 2"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/3.jpg"
+                  alt="Modelling photo 3"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/4.jpeg"
+                  alt="Modelling photo 4"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/5.jpeg"
+                  alt="Modelling photo 5"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/6.jpeg"
+                  alt="Modelling photo 6"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/7.jpeg"
+                  alt="Modelling photo 7"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/8.jpeg"
+                  alt="Modelling photo 8"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/9.jpeg"
+                  alt="Modelling photo 9"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/10.jpeg"
+                  alt="Modelling photo 10"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="media-modelling-slide">
+                <img
+                  src="model/11.jpeg"
+                  alt="Modelling photo 11"
+                  width="1153"
+                  height="467"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+          </div>
+
+          <div class="media-modelling-controls">
+            <div class="media-modelling-dots" role="tablist" aria-label="Choose slide">
+              <button
+                type="button"
+                class="media-modelling-dot is-active"
+                role="tab"
+                aria-selected="true"
+                aria-label="Slide 1 of 11"
+                data-modelling-dot="0"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 2 of 11"
+                data-modelling-dot="1"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 3 of 11"
+                data-modelling-dot="2"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 4 of 11"
+                data-modelling-dot="3"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 5 of 11"
+                data-modelling-dot="4"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 6 of 11"
+                data-modelling-dot="5"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 7 of 11"
+                data-modelling-dot="6"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 8 of 11"
+                data-modelling-dot="7"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 9 of 11"
+                data-modelling-dot="8"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 10 of 11"
+                data-modelling-dot="9"
+              ></button>
+              <button
+                type="button"
+                class="media-modelling-dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 11 of 11"
+                data-modelling-dot="10"
+              ></button>
+            </div>
+
+            <div class="media-modelling-bar">
+              <h2 id="modelling-heading">Modelling</h2>
+              <div class="media-modelling-arrows">
+                <button
+                  type="button"
+                  class="media-modelling-arrow"
+                  data-modelling-prev
+                  aria-label="Previous photo"
+                >
+                  <svg width="44" height="16" viewBox="0 0 44 16" aria-hidden="true">
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.15"
+                      d="M42 8H2M10 1 2 8l8 7"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="media-modelling-arrow"
+                  data-modelling-next
+                  aria-label="Next photo"
+                >
+                  <svg width="44" height="16" viewBox="0 0 44 16" aria-hidden="true">
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.15"
+                      d="M2 8h40M34 1l8 7-8 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container home-footer-grid">
+        <div class="home-footer-col">
+          <h3 class="home-footer-heading">Design</h3>
+          <a class="home-footer-link" href="portfolio.html">portfolio</a>
+        </div>
+        <div class="home-footer-col">
+          <h3 class="home-footer-heading">Performer</h3>
+          <nav class="home-footer-nav" aria-label="Footer">
+            <a href="about.html">about</a>
+            <a href="resume.html">resume</a>
+            <a href="gallery.html">media</a>
+            <a href="contact.html">contact</a>
+          </nav>
+        </div>
+        <div class="home-footer-col">
+          <h3 class="home-footer-heading">Info</h3>
+          <p class="home-footer-line">
+            <svg
+              class="home-footer-icon"
+              width="18"
+              height="14"
+              viewBox="0 0 18 14"
+              aria-hidden="true"
+            >
+              <path
+                fill="currentColor"
+                d="M1 0h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1zm0 2 8 5 8-5V1H1v1zm0 2.5V13h16V4.5l-8 5-8-5z"
+              />
+            </svg>
+            <a href="mailto:babisrirajan@gmail.com">babisrirajan@gmail.com</a>
+          </p>
+          <p class="home-footer-line">
+            <svg
+              class="home-footer-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill="currentColor"
+                d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9 0 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9 0-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-3.3 1.7-4.8 4.9-4.9 1.3-.1 1.7-.1 4.9-.1zm0 1.8c-3.1 0-3.5 0-4.7.1-2.7.1-3.8 1.2-3.9 3.9 0 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 2.7 1.2 3.8 3.9 3.9 1.2 0 1.6.1 4.7.1s3.5 0 4.7-.1c2.7-.1 3.8-1.2 3.9-3.9 0-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-2.7-1.2-3.8-3.9-3.9-1.2-.1-1.6-.1-4.7-.1zm0 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 1.8a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4zm5.8-.9a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"
+              />
+            </svg>
+            <a href="https://instagram.com/babitha._" rel="noopener noreferrer">@babitha._</a>
+          </p>
+        </div>
+        <div class="home-footer-bottom">
+          <span>Web Design by Babitha Srirajan</span>
+          <span>© 2026 Babitha Srirajan</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

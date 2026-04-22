@@ -1,0 +1,822 @@
+/* Media (gallery) page — cream body, white header, MEDIA hero, vocal + dance */
+
+body.page-media {
+  --media-cream: #f2f1ed;
+  --media-olive: #6b6e52;
+  --media-accent: #2a6b52;
+  --media-header-h: 165px;
+  background: var(--media-cream);
+  color: #0a0a0a;
+}
+
+body.page-media a {
+  color: inherit;
+}
+
+body.page-media main {
+  padding-top: 0;
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* ---------- Header (white bar, matches mock) ---------- */
+
+body.page-media .site-header {
+  position: relative;
+  z-index: 100;
+  height: var(--media-header-h);
+  min-height: var(--media-header-h);
+  padding: 0;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.06);
+  pointer-events: none;
+}
+
+body.page-media .site-header-inner {
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-inline: clamp(2rem, 6.5vw, 5.75rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+
+body.page-media .logo {
+  font-family: "Italiana", Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  line-height: 1;
+  color: #0a0a0a;
+  text-decoration: none;
+  transition: opacity 0s;
+}
+
+body.page-media .logo:hover {
+  color: #0a0a0a;
+  opacity: 0.5;
+}
+
+body.page-media .nav-main {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+body.page-media .nav-main a {
+  display: inline-block;
+  opacity: 1;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  color: rgba(10, 10, 10, 0.5);
+  text-decoration: none;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+body.page-media .nav-main a:hover:not(.is-active),
+body.page-media .nav-main a:focus-visible:not(.is-active) {
+  opacity: 1;
+  color: #0a0a0a;
+}
+
+body.page-media .nav-main a.is-active {
+  opacity: 1;
+  color: #0a0a0a;
+  border-bottom-color: #0a0a0a;
+}
+
+body.page-media .nav-main a.is-active:hover,
+body.page-media .nav-main a.is-active:focus-visible {
+  opacity: 1;
+  color: #0a0a0a;
+  border-bottom-color: #0a0a0a;
+}
+
+body.page-media .nav-main a:focus-visible {
+  outline: none;
+}
+
+body.page-media .nav-toggle {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: rgba(10, 10, 10, 0.65);
+  border: 1px solid rgba(10, 10, 10, 0.22);
+  background: transparent;
+}
+
+body.page-media .nav-toggle:hover {
+  color: #0a0a0a;
+  border-color: rgba(10, 10, 10, 0.4);
+}
+
+/* ---------- Hero: dark stage strip + MEDIA ---------- */
+
+.media-hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 539px;
+  min-height: 539px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2rem);
+  overflow: hidden;
+  /* Warm mid-dark base so the lifted film read stays soft, not harsh */
+  background-color: #2c2624;
+}
+
+/* Fills hero only; viewport-fixed + clip-path is applied via JS (see main.js) */
+.media-hero-video {
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  opacity: 0.88;
+  /* Stronger lift: brighter, airy stock feel */
+  filter: brightness(1.38) contrast(0.86) saturate(0.86) sepia(0.05);
+}
+
+.media-hero-video--viewport-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  z-index: 0;
+}
+
+.media-hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(10, 8, 7, 0.26) 0%,
+    rgba(28, 22, 18, 0.18) 45%,
+    rgba(12, 10, 9, 0.3) 100%
+  );
+}
+
+.media-hero-title {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  font-family: "Italiana", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.75rem, 10vw, 4.5rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.98);
+  text-align: center;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media-hero-video {
+    display: none;
+  }
+
+  .media-hero {
+    background-image: linear-gradient(
+      115deg,
+      rgba(8, 7, 6, 0.97) 0%,
+      rgba(42, 30, 26, 0.88) 38%,
+      rgba(22, 18, 16, 0.92) 62%,
+      rgba(10, 8, 7, 0.98) 100%
+    );
+  }
+}
+
+/* ---------- Section headings ---------- */
+
+.media-section {
+  --media-section-pad-x: clamp(1.25rem, 4vw, 2rem);
+  max-width: min(1100px, 100% - 2 * var(--media-section-pad-x));
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 3.75rem) var(--media-section-pad-x) 0;
+}
+
+.media-section h2 {
+  margin: 0 0 clamp(1.5rem, 3.5vw, 2.25rem);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4.5vw, 2.65rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #0a0a0a;
+}
+
+.media-section--vocal {
+  padding-bottom: clamp(2.5rem, 6vw, 3.75rem);
+}
+
+.media-section--vocal h2,
+.media-section--dance h2,
+.media-section--modelling h2 {
+  font-family: "Oranienbaum", Georgia, serif;
+  font-size: min(100px, 22vw);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Vocal: two embeds ---------- */
+
+.media-vocal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  align-items: start;
+}
+
+.media-embed {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.media-embed-caption {
+  margin: 0;
+  padding: 1.1rem 0 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  text-align: center;
+  color: rgba(10, 10, 10, 0.72);
+}
+
+.media-embed-caption cite {
+  font-style: normal;
+}
+
+.media-embed iframe,
+.media-embed video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 180px;
+  border: 0;
+  vertical-align: middle;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  background: #0a0a0a;
+}
+
+/* ---------- Dance: masonry-style grid ---------- */
+
+.media-dance-grid {
+  display: grid;
+  /* Same cream as body so gutters + area below read as one plane (no compositing seam) */
+  background: var(--media-cream);
+  /* Three columns; reel cell adds padding-left gutter (same token as column-gap) + column-gap before it */
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.05fr) minmax(0, 0.92fr);
+  grid-template-rows: 1fr 1fr;
+  row-gap: clamp(1rem, 2.75vw, 1.85rem);
+  --media-dance-col-gap: clamp(0.85rem, 2.25vw, 1.5rem);
+  column-gap: var(--media-dance-col-gap);
+  align-items: stretch;
+  min-height: clamp(480px, 68vh, 760px);
+  overflow: visible;
+}
+
+.media-dance-cell {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.media-dance-cell img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.media-dance-cell--tall {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  min-height: 0;
+}
+
+/* Middle top: landscape video (Soulsista) */
+.media-dance-cell--video.media-dance-cell--choreo {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+  border-radius: 0;
+  /* No shadow — it bleeds across the column gap onto the cream beside the reel */
+  box-shadow: none;
+}
+
+.media-dance-cell--video.media-dance-cell--choreo video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+/* Middle bottom: same 16:9 frame as Soulsista above */
+.media-dance-cell--wide {
+  grid-column: 2;
+  grid-row: 2;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Reel: inner cream gutter (padding) same width token as column-gap; same fill as body/grid */
+.media-dance-cell.media-dance-cell--reel {
+  grid-column: 3;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 0;
+  height: 100%;
+  padding-left: var(--media-dance-col-gap);
+  padding-right: 0;
+  overflow: visible;
+  border: 0;
+  background-color: var(--media-cream);
+  box-shadow: none;
+  filter: none;
+  animation: none;
+  transition: none;
+}
+
+/* 3:4 frame full row height; bleed right (margin on frame only) */
+.media-dance-reel-frame {
+  position: relative;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  max-height: 100%;
+  aspect-ratio: 3 / 4;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: none;
+  outline: none;
+  filter: none;
+  animation: none;
+  transition: none;
+  margin-right: calc(
+    -1 * var(--media-section-pad-x)
+    - (100vw - min(1100px, 100vw - 2 * var(--media-section-pad-x))) / 2
+    + env(safe-area-inset-right, 0px)
+  );
+}
+
+.media-dance-cell--reel iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.media-dance-reel-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  filter: none;
+  object-fit: contain;
+  object-position: center;
+  /* WebKit / iOS: kill control chrome shadow + hairline around the element */
+  isolation: isolate;
+}
+
+.media-dance-reel-frame video::-webkit-media-controls-panel {
+  box-shadow: none !important;
+}
+
+.media-dance-reel-frame video::-webkit-media-controls-enclosure {
+  box-shadow: none !important;
+}
+
+/* Reel only: native fullscreen stays letterboxed / capped — not edge-to-edge on large displays */
+.media-dance-reel-frame video:-webkit-full-screen {
+  position: static;
+  inset: auto;
+  width: auto;
+  height: auto;
+  max-width: min(960px, 92vw);
+  max-height: min(85vh, 85dvh);
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+}
+
+.media-dance-reel-frame video:-moz-full-screen {
+  position: static;
+  inset: auto;
+  width: auto;
+  height: auto;
+  max-width: min(960px, 92vw);
+  max-height: min(85vh, 85dvh);
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+}
+
+.media-dance-reel-frame video:fullscreen {
+  position: static;
+  inset: auto;
+  width: auto;
+  height: auto;
+  max-width: min(960px, 92vw);
+  max-height: min(85vh, 85dvh);
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+}
+
+.media-dance-reel-frame video::backdrop {
+  background: rgba(10, 10, 10, 0.92);
+}
+
+/* ---------- Modelling: carousel + title bar ---------- */
+
+.media-section--modelling {
+  --media-section-pad-x: clamp(1.25rem, 4vw, 2rem);
+  max-width: none;
+  margin: 0;
+  padding: clamp(3.75rem, 10vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem);
+  background: var(--media-cream);
+}
+
+/* Modelling: each image capped to 1153×467 max box, intrinsic ratio; small gap between slides */
+.media-modelling {
+  --modelling-carousel-stage: var(--media-cream);
+  --modelling-cell-max-w: 1153px;
+  --modelling-cell-max-h: 467px;
+  /* Side bands: same fill as page cream (inset padding, not a contrasting frame) */
+  --modelling-side-rail-w: clamp(18px, 3.2vw, 44px);
+  --modelling-side-rail-bg: var(--media-cream);
+}
+
+@media (max-width: 1220px) {
+  .media-modelling {
+    --modelling-cell-max-w: min(1153px, calc(100vw - 2.5rem));
+    --modelling-cell-max-h: calc(var(--modelling-cell-max-w) * 467 / 1153);
+  }
+}
+
+.media-modelling-viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* no scroll-snap — it fights programmatic smooth scroll between slides */
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background: var(--modelling-carousel-stage);
+  padding-inline: var(--media-section-pad-x, clamp(1.25rem, 4vw, 2rem));
+  border-left: var(--modelling-side-rail-w) solid var(--modelling-side-rail-bg);
+  border-right: var(--modelling-side-rail-w) solid var(--modelling-side-rail-bg);
+}
+
+.media-modelling-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media-modelling-viewport {
+    scroll-behavior: auto;
+  }
+}
+
+.media-modelling-track {
+  position: relative;
+  display: flex;
+  width: max-content;
+  gap: clamp(8px, 1.2vw, 14px);
+  align-items: flex-start;
+  background: var(--modelling-carousel-stage);
+}
+
+.media-modelling-slide {
+  flex: 0 0 auto;
+  width: auto;
+  height: var(--modelling-cell-max-h);
+  max-width: var(--modelling-cell-max-w);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+/* Natural aspect ratio; scales down to fit inside max 1153×467 (no forced cell width) */
+.media-modelling-slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: var(--modelling-cell-max-w);
+  max-height: var(--modelling-cell-max-h);
+}
+
+.media-modelling-controls {
+  max-width: min(1100px, 100% - 2 * var(--media-section-pad-x));
+  margin: 0 auto;
+  padding: clamp(2.25rem, 5vw, 3.25rem) var(--media-section-pad-x) 0;
+}
+
+.media-modelling-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 clamp(2rem, 4.5vw, 2.75rem);
+}
+
+.media-modelling-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.22);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.media-modelling-dot:hover,
+.media-modelling-dot:focus-visible {
+  background: rgba(10, 10, 10, 0.45);
+  outline: none;
+}
+
+.media-modelling-dot.is-active {
+  background: #3a3a3a;
+  transform: scale(1.05);
+}
+
+.media-modelling-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+/* Below carousel + dots: same type scale as Vocal/Dance, mock layout (title left, arrows right) */
+.media-section--modelling .media-modelling-bar h2 {
+  margin: 0;
+  text-align: left;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.media-modelling-arrows {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.media-modelling-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  border: 0;
+  background: transparent;
+  color: #0a0a0a;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.media-modelling-arrow:hover,
+.media-modelling-arrow:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+.media-modelling-arrow:focus-visible {
+  box-shadow: 0 0 0 2px rgba(10, 10, 10, 0.2);
+}
+
+/* ---------- Footer (olive, same family as resume) ---------- */
+
+body.page-media .site-footer {
+  margin-top: 0;
+  border-top: none;
+  background: var(--media-olive);
+  color: rgba(245, 243, 239, 0.92);
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(1.75rem, 3vw, 2.25rem);
+}
+
+body.page-media .home-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem 2.5rem;
+  align-items: start;
+}
+
+body.page-media .home-footer-heading {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: rgba(245, 243, 239, 0.75);
+}
+
+body.page-media .home-footer-link,
+body.page-media .home-footer-nav a {
+  display: block;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--media-cream);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+body.page-media .home-footer-nav a:last-child {
+  margin-bottom: 0;
+}
+
+body.page-media .home-footer-link:hover,
+body.page-media .home-footer-nav a:hover {
+  opacity: 0.75;
+  color: var(--media-cream);
+}
+
+body.page-media .home-footer-line {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.65rem;
+  font-size: 0.875rem;
+}
+
+body.page-media .home-footer-line:last-child {
+  margin-bottom: 0;
+}
+
+body.page-media .home-footer-icon {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+body.page-media .home-footer-line a {
+  color: var(--media-cream);
+  text-decoration: none;
+}
+
+body.page-media .home-footer-line a:hover {
+  opacity: 0.8;
+}
+
+body.page-media .home-footer-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(245, 243, 239, 0.2);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: rgba(245, 243, 239, 0.65);
+}
+
+@media (max-width: 900px) {
+  body.page-media .site-header-inner {
+    padding-inline: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  body.page-media .nav-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.65rem;
+    background: #fff;
+    border-left: 1px solid rgba(10, 10, 10, 0.1);
+    padding: 5rem 1.75rem 2.5rem;
+  }
+
+  body.page-media .nav-main a {
+    opacity: 1;
+    font-size: 14px;
+    padding-bottom: 0.4em;
+  }
+
+  .media-vocal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media-dance-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    min-height: 0;
+  }
+
+  .media-dance-cell--tall {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: min(72vh, 480px);
+    aspect-ratio: 3 / 4;
+  }
+
+  .media-dance-cell--choreo,
+  .media-dance-cell--wide,
+  .media-dance-cell--reel {
+    grid-column: 1;
+    grid-row: auto;
+    aspect-ratio: unset;
+  }
+
+  .media-dance-cell--video.media-dance-cell--choreo {
+    aspect-ratio: 16 / 9;
+  }
+
+  .media-dance-cell--wide {
+    aspect-ratio: 16 / 9;
+  }
+
+  .media-dance-cell.media-dance-cell--reel {
+    grid-column: 1;
+    display: block;
+    height: auto;
+    padding: 0;
+    margin-right: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .media-dance-reel-frame {
+    width: min(100%, 420px);
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  body.page-media .home-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  body.page-media .home-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

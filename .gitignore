@@ -1,0 +1,5 @@
+.DS_Store
+.video-frames/
+*.log
+.env
+.env.*
