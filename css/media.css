@@ -272,7 +272,25 @@ body.page-media .nav-toggle:hover {
   font-style: normal;
 }
 
-.media-embed iframe,
+/* YouTube needs a sized box; iframe + height:auto + aspect-ratio is unreliable in some browsers */
+.media-embed-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0a0a0a;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.media-embed-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .media-embed video {
   display: block;
   width: 100%;
@@ -347,6 +365,14 @@ body.page-media .nav-toggle:hover {
   height: 100%;
   border: 0;
   object-fit: cover;
+}
+
+.media-dance-cell--video.media-dance-cell--choreo iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Middle bottom: same 16:9 frame as Soulsista above */
