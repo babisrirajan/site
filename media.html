@@ -104,17 +104,20 @@
           </figure>
           <figure class="media-dance-cell media-dance-cell--video media-dance-cell--reel">
             <div class="media-dance-reel-frame">
-              <video
-                controls
-                playsinline
-                preload="metadata"
-                width="720"
-                height="960"
-                poster="media/dance-reel-0417-poster.jpg"
-                title="Dance reel"
+              <button
+                type="button"
+                class="media-dm-launch"
+                data-dm-reel="k67yioge70m2HzFMSsO"
+                aria-label="Play dance reel"
               >
-                <source src="media/Babitha Srirajan Dance Reel copy.mov" type="video/quicktime" />
-              </video>
+                <img
+                  class="media-dm-thumb"
+                  src="media/dance-reel-0417-poster.jpg"
+                  alt="Dance reel thumbnail"
+                  loading="lazy"
+                />
+                <span class="media-dm-play" aria-hidden="true">▶</span>
+              </button>
             </div>
           </figure>
         </div>
@@ -434,6 +437,7 @@
       </div>
     </footer>
 
+    <script src="https://api.dmcdn.net/all.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

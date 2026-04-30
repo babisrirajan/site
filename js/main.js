@@ -402,3 +402,37 @@
       });
   });
 })();
+
+
+/* Media page: click-to-load Dailymotion reel */
+(function () {
+  var root = document.querySelector(".media-dance-reel-frame");
+  var launcher = root && root.querySelector("[data-dm-reel]");
+  if (!root || !launcher) return;
+
+  function bindLauncher(button) {
+    button.addEventListener("click", function () {
+      var id = button.getAttribute("data-dm-reel");
+      if (!id) return;
+
+      var host = document.createElement("div");
+      host.className = "media-dm-player-host";
+      host.setAttribute("aria-label", "Dance reel player");
+
+      button.replaceWith(host);
+
+      var frame = document.createElement("iframe");
+      frame.src =
+        "https://www.dailymotion.com/embed/video/" +
+        encodeURIComponent(id) +
+        "?autoplay=1&mute=0";
+      frame.title = "Dance reel (Dailymotion)";
+      frame.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; web-share");
+      frame.setAttribute("allowfullscreen", "");
+      frame.setAttribute("loading", "eager");
+      host.appendChild(frame);
+    });
+  }
+
+  bindLauncher(launcher);
+})();
