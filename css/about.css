@@ -1,8 +1,7 @@
-/* About page — mockup: cream header, dark split hero, sage band, olive footer */
+/* About page — mockup: cream header, dark split hero, olive footer */
 
 body.page-about {
   --about-cream: #f2f1ed;
-  --about-sage: #aeb89f;
   --about-olive: #6b6e52;
   --about-olive-deep: #5c5f47;
   /* Hero ombre — shared seam tone + green-gray stops (opaque copy column only) */
@@ -248,26 +247,6 @@ body.page-about .nav-toggle:hover {
 
 .about-hero-body p {
   margin: 0;
-}
-
-/* ---------- Sage spacer + accent line ---------- */
-
-.about-spacer {
-  position: relative;
-  min-height: clamp(5.5rem, 14vh, 10rem);
-  background: var(--about-sage);
-}
-
-.about-spacer::before {
-  content: "";
-  position: absolute;
-  left: clamp(1.25rem, 4vw, 3.25rem);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 50%;
-  min-height: 2.5rem;
-  background: rgba(255, 255, 255, 0.85);
 }
 
 /* ---------- Footer (match home olive layout) ---------- */
