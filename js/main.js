@@ -3,10 +3,16 @@
   var nav = document.querySelector("[data-nav]");
   if (!toggle || !nav) return;
 
+  function syncToggleLabel(open) {
+    toggle.textContent = open ? "×" : "Menu";
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
   function close() {
     nav.classList.remove("is-open");
     document.body.classList.remove("nav-open");
     toggle.setAttribute("aria-expanded", "false");
+    syncToggleLabel(false);
   }
 
   toggle.addEventListener("click", function () {
@@ -14,6 +20,7 @@
     nav.classList.toggle("is-open", open);
     document.body.classList.toggle("nav-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    syncToggleLabel(open);
   });
 
   nav.querySelectorAll("a").forEach(function (link) {
@@ -23,6 +30,8 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") close();
   });
+
+  syncToggleLabel(false);
 })();
 
 (function () {
@@ -354,5 +363,42 @@
     };
     if (prev) prev.addEventListener("click", function () { step(-1); });
     if (next) next.addEventListener("click", function () { step(1); });
+  });
+})();
+
+/* Resume page: download PDF with a chosen filename (blob avoids browser opening PDF inline) */
+(function () {
+  var btn = document.querySelector("[data-resume-download]");
+  if (!btn) return;
+
+  var src = btn.getAttribute("data-resume-src") || "ResumeNEW_merged.pdf";
+  var filename =
+    btn.getAttribute("data-resume-filename") || "Babitha Srirajan Resume.pdf";
+
+  btn.addEventListener("click", function () {
+    fetch(src)
+      .then(function (res) {
+        if (!res.ok) throw new Error("fetch failed");
+        return res.blob();
+      })
+      .then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        a.rel = "noopener";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      })
+      .catch(function () {
+        var a = document.createElement("a");
+        a.href = src;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
   });
 })();

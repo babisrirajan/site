@@ -1,4 +1,4 @@
-/* Media (gallery) page — cream body, white header, MEDIA hero, vocal + dance */
+/* Media page — cream body/header, MEDIA hero, vocal + dance */
 
 body.page-media {
   --media-cream: #f2f1ed;
@@ -18,7 +18,7 @@ body.page-media main {
   padding-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 
-/* ---------- Header (white bar, matches mock) ---------- */
+/* ---------- Header (cream bar, matches other interior pages) ---------- */
 
 body.page-media .site-header {
   position: relative;
@@ -27,8 +27,8 @@ body.page-media .site-header {
   min-height: var(--media-header-h);
   padding: 0;
   box-sizing: border-box;
-  background: #fff;
-  border-bottom: 1px solid rgba(10, 10, 10, 0.06);
+  background: var(--media-cream);
+  border-bottom: none;
   pointer-events: none;
 }
 
@@ -240,9 +240,11 @@ body.page-media .nav-toggle:hover {
 
 .media-vocal-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(1rem, 3vw, 1.75rem);
   align-items: start;
+  max-width: min(760px, 100%);
+  margin: 0 auto;
 }
 
 .media-embed {
@@ -385,6 +387,13 @@ body.page-media .nav-toggle:hover {
   background: #0a0a0a;
   border-radius: 0;
   box-shadow: none;
+}
+
+.media-dance-cell--wide img {
+  /* Force a right-side crop by zooming in, then anchoring to the right */
+  object-position: 100% center;
+  transform: scale(1.2);
+  transform-origin: 100% center;
 }
 
 /* Reel: inner cream gutter (padding) same width token as column-gap; same fill as body/grid */
@@ -773,7 +782,7 @@ body.page-media .home-footer-bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.65rem;
-    background: #fff;
+    background: var(--media-cream);
     border-left: 1px solid rgba(10, 10, 10, 0.1);
     padding: 5rem 1.75rem 2.5rem;
   }

@@ -4,3 +4,5 @@
 .env
 .env.*
 media/8mb.video-xj8-CyTqqmB6.mp4
+# Full-size reel source; repo ships compressed web.mp4 only
+media/dance-reel-0417.mov
