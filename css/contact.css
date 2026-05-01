@@ -255,6 +255,19 @@ body.page-contact .nav-toggle:hover {
   display: block;
 }
 
+.contact-error {
+  display: none;
+  margin-top: 0.85rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #7a1f2e;
+}
+
+.contact-error.is-visible {
+  display: block;
+}
+
 .contact-visual {
   margin: 0;
   min-height: min(520px, 55vh);

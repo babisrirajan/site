@@ -401,6 +401,12 @@ body.page-home .home-thanks-bar.is-visible {
   display: block;
 }
 
+body.page-home .home-contact-error {
+  color: #f0d5d9;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.05rem;
+}
+
 /* ---------- Footer: olive, three columns (full canvas) ---------- */
 
 body.page-home .site-footer {

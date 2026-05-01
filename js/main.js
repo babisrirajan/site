@@ -42,8 +42,71 @@
       var thanks =
         form.parentElement && form.parentElement.querySelector("[data-thanks]");
       if (!thanks) thanks = form.querySelector("[data-thanks]");
-      if (thanks) thanks.classList.add("is-visible");
-      form.reset();
+      var errEl =
+        form.parentElement && form.parentElement.querySelector("[data-contact-error]");
+      if (!errEl) errEl = form.querySelector("[data-contact-error]");
+      var submitBtn = form.querySelector('[type="submit"]');
+      var fd = new FormData(form);
+      var payload = {
+        firstName: fd.get("firstName"),
+        lastName: fd.get("lastName"),
+        email: fd.get("email"),
+        message: fd.get("message"),
+      };
+
+      if (thanks) thanks.classList.remove("is-visible");
+      if (errEl) {
+        errEl.classList.remove("is-visible");
+        errEl.textContent = "";
+      }
+
+      var prevLabel = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+      }
+
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (r) {
+          return r.json().then(function (data) {
+            return { ok: r.ok, status: r.status, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.ok) {
+            form.reset();
+            if (thanks) thanks.classList.add("is-visible");
+            return;
+          }
+          var msg =
+            (result.data && result.data.error) ||
+            "Something went wrong. Please try again.";
+          if (errEl) {
+            errEl.textContent = msg;
+            errEl.classList.add("is-visible");
+          } else {
+            window.alert(msg);
+          }
+        })
+        .catch(function () {
+          var msg = "Could not reach the server. Check your connection.";
+          if (errEl) {
+            errEl.textContent = msg;
+            errEl.classList.add("is-visible");
+          } else {
+            window.alert(msg);
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = prevLabel;
+          }
+        });
     });
   });
 })();

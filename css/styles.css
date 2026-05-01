@@ -256,6 +256,19 @@ main {
   display: block;
 }
 
+.form-contact-error {
+  display: none;
+  margin-top: 0.85rem;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #8b2942;
+}
+
+.form-contact-error.is-visible {
+  display: block;
+}
+
 /* ---------- Gallery ---------- */
 
 .gallery-intro {
